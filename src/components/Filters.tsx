@@ -37,7 +37,6 @@ const Filters: React.FC = () => {
         name: event.currentTarget.name,
         value: event.currentTarget.value,
         dataset: {
-          
           color: event.currentTarget.dataset.color,
           category: event.currentTarget.dataset.category,
         },
@@ -69,7 +68,7 @@ const Filters: React.FC = () => {
   }, []);
 
   const handleMoreFiltersClick = () => {
-    setShowFilters((prevState) => !prevState);
+    setShowFilters(!showFilters);
   };
 
   return (
