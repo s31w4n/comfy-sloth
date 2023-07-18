@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useFilterContext } from '../context/filter_context';
 import { getUniqueValues, formatPrice } from '../utils/helpers';
 import { FaCheck } from 'react-icons/fa';
-import { BsFilter } from 'react-icons/bs';
 
 const Filters: React.FC = () => {
   const [showMoreFiltersButton, setShowMoreFiltersButton] = useState(false);
@@ -102,7 +101,6 @@ const Filters: React.FC = () => {
                 className="more-filters-btn btn filters-btn"
                 onClick={handleMoreFiltersClick}
               >
-                <BsFilter />
                 {showFilters ? 'Less Filters' : 'More Filters'}
               </button>
             )}
@@ -331,10 +329,6 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
     margin-bottom: 1.75rem;
     margin-left: 1rem;
-    svg {
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
   }
   .form-container {
     display: flex;
