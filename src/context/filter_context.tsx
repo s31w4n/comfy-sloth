@@ -117,7 +117,7 @@ export const FilterProvider: React.FC<ContextProps> = ({ children }) => {
         value = Number(value);
       }
       if (name === 'shipping') {
-        value = Boolean(value);
+        value = event.target.checked;
       }
     }
 
