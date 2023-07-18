@@ -39,8 +39,8 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page (development & deployment)
-        return_url: 'http://localhost:8888/checkout/success',
-        // return_url: 'https://s31w4n-comfy-zone.netlify.app/checkout/success',
+        // return_url: 'http://localhost:8888/checkout/success',
+        return_url: 'https://comfy-zone-ts.vercel.app/checkout/success',
       },
     });
 
