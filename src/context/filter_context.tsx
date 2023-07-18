@@ -103,6 +103,10 @@ export const FilterProvider: React.FC<ContextProps> = ({ children }) => {
       name = event.target.name;
       value = event.target.value;
 
+      if (name === 'text') {
+        value = event.target.value.toLowerCase();
+      }
+
       if (name === 'category') {
         value = event.target.dataset.category;
       }
