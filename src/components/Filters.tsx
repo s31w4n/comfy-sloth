@@ -321,7 +321,7 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
   }
   .filters-btn {
-    background: var(--clr-green-dark);
+    background: var(--clr-primary-5);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
