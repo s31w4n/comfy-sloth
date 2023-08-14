@@ -8,38 +8,36 @@ import { BsFilterLeft } from 'react-icons/bs';
 const Filters: React.FC = () => {
   const [showMoreFiltersButton, setShowMoreFiltersButton] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
-
+  const { all_products, filters, updateFilters, clearFilters } =
+    useFilterContext();
   const {
-    all_products,
-    filters: {
-      text,
-      company,
-      category,
-      color,
-      min_price,
-      max_price,
-      price,
-      shipping,
-    },
-    updateFilters,
-    clearFilters,
-  } = useFilterContext();
+    text,
+    company,
+    category,
+    color,
+    min_price,
+    max_price,
+    price,
+    shipping,
+  } = filters;
 
   const categories = getUniqueValues(all_products, 'category');
   const companies = getUniqueValues(all_products, 'company');
   const colors = getUniqueValues(all_products, 'colors');
 
   // This function handles button clicks and creates a synthetic event with relevant data, then calls the 'updateFilters' function with the synthetic event.
-  const handleButtonClick: React.MouseEventHandler<HTMLButtonElement> = (
-    event
-  ) => {
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const { name, value } = event.currentTarget;
+    const { color: dataColor, category: dataCategory } =
+      event.currentTarget.dataset;
+
     const syntheticEvent = {
       target: {
-        name: event.currentTarget.name,
-        value: event.currentTarget.value,
+        name,
+        value,
         dataset: {
-          color: event.currentTarget.dataset.color,
-          category: event.currentTarget.dataset.category,
+          color: dataColor,
+          category: dataCategory,
         },
       },
     } as any;
@@ -51,13 +49,8 @@ const Filters: React.FC = () => {
   // handles the initial setup, and cleans up the listener when the component unmounts.
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setShowMoreFiltersButton(true);
-        setShowFilters(false);
-      } else {
-        setShowMoreFiltersButton(false);
-        setShowFilters(true);
-      }
+      setShowMoreFiltersButton(window.innerWidth <= 768);
+      setShowFilters(window.innerWidth > 768);
     };
 
     window.addEventListener('resize', handleResize);

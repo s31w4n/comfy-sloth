@@ -13,22 +13,28 @@ const StripeCheckout: React.FC = () => {
   const [clientSecret, setClientSecret] = useState('');
   const { shipping_fee, total_amount } = useCartContext();
 
-  const createPaymentIntent = async () => {
-    await fetch('/.netlify/functions/create-payment-intent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ shipping_fee, total_amount }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  };
-
   useEffect(() => {
+    const createPaymentIntent = async () => {
+      try {
+        const response = await fetch(
+          '/.netlify/functions/create-payment-intent',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ shipping_fee, total_amount }),
+          }
+        );
+        const data = await response.json();
+        setClientSecret(data.clientSecret);
+      } catch (error) {
+        console.error('Error creating payment intent:', error);
+      }
+    };
+
     createPaymentIntent();
-    // eslint-disable-next-line
-  }, []);
+  }, [shipping_fee, total_amount]);
 
   const options: StripeElementsOptions = {
     clientSecret,
