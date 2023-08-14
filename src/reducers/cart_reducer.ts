@@ -6,11 +6,7 @@ import {
   TOGGLE_CART_ITEM_AMOUNT,
 } from '../actions';
 import { InitialStateType as State } from '../context/cart_context';
-
-interface Action {
-  type: string;
-  payload?: any;
-}
+import { Action } from '../types';
 
 const cart_reducer = (state: State, action: Action) => {
   if (action.type === ADD_TO_CART) {

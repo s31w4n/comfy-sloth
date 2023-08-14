@@ -74,7 +74,7 @@ const SidebarContainer = styled.div`
     height: 45px;
   }
   .links {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .links a {
     display: block;

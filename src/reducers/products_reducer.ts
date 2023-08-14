@@ -8,15 +8,8 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions';
-import {
-  InitialStateType as State,
-  Product,
-} from '../context/products_context';
-
-interface Action {
-  type: string;
-  payload?: any;
-}
+import { InitialStateType as State } from '../context/products_context';
+import { Action, Product } from '../types';
 
 const products_reducer = (state: State, action: Action) => {
   if (action.type === SIDEBAR_OPEN) {

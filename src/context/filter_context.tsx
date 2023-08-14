@@ -11,18 +11,7 @@ import {
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
 } from '../actions';
-import { Products } from './products_context';
-
-interface Filters {
-  text: string;
-  company: string;
-  category: string;
-  color: string;
-  min_price: number;
-  max_price: number;
-  price: number;
-  shipping: boolean;
-}
+import { ContextProps, Filters, Products } from '../types';
 
 export type InitialStateType = {
   filtered_products: Products[];
@@ -31,10 +20,6 @@ export type InitialStateType = {
   sort: string;
   filters: Filters;
 };
-
-interface ContextProps {
-  children: React.ReactNode;
-}
 
 type FilterContextType = InitialStateType & {
   setGridView: () => void;
@@ -144,7 +129,6 @@ export const FilterProvider: React.FC<ContextProps> = ({ children }) => {
   );
 };
 
-// make sure use
 export const useFilterContext = () => {
   return useContext(FilterContext);
 };

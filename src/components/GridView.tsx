@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Product from './Product';
-import { Products } from '../context/products_context';
+import { Products } from '../types';
 
 interface Props {
   products: Products[];
@@ -21,7 +21,7 @@ const GridView: React.FC<Props> = ({ products }) => {
 
 const Wrapper = styled.section`
   img {
-    height: 175px;
+    height: 200px;
   }
 
   .products-container {

@@ -46,14 +46,14 @@ const CartButtons: React.FC = () => {
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
   align-items: center;
-  width: 225px;
-  margin: 0 1.5rem;
+  margin-left: 1.5rem;
 
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
@@ -82,14 +82,15 @@ const Wrapper = styled.div`
     border-radius: 50%;
     font-size: 0.75rem;
     color: var(--clr-white);
-    padding: 12px;
+    padding: 11px;
   }
   .auth-btn {
     display: flex;
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    font-family: 'Gambetta', serif;
+    font-size: 1.25rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

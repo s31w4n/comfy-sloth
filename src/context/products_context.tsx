@@ -12,38 +12,7 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions';
-
-export type Product = {
-  id: string;
-  stock: number;
-  price: number;
-  shipping: boolean;
-  colors: string[];
-  category: string;
-  images: [{ url: string; filename: string }];
-  reviews: number;
-  stars: number;
-  name: string;
-  description: string;
-  company: string;
-  featured?: boolean;
-};
-
-export type Products = {
-  id: string;
-  stock: number;
-  price: number;
-  shipping: boolean;
-  colors: string[];
-  category: string;
-  image: string;
-  reviews: number;
-  stars: number;
-  name: string;
-  description: string;
-  company: string;
-  featured?: boolean;
-};
+import { ContextProps, Product, Products } from '../types';
 
 export type InitialStateType = {
   isSidebarOpen: boolean;
@@ -56,9 +25,11 @@ export type InitialStateType = {
   single_product: Product;
 };
 
-interface ContextProps {
-  children: React.ReactNode;
-}
+type ProductContextType = InitialStateType & {
+  openSidebar: () => void;
+  closeSidebar: () => void;
+  fetchSingleProduct: (url: string) => void;
+};
 
 const initialState: InitialStateType = {
   isSidebarOpen: false,
@@ -82,12 +53,6 @@ const initialState: InitialStateType = {
     description: '',
     company: '',
   },
-};
-
-type ProductContextType = InitialStateType & {
-  openSidebar: () => void;
-  closeSidebar: () => void;
-  fetchSingleProduct: (url: string) => void;
 };
 
 const ProductsContext = React.createContext<ProductContextType>(
@@ -139,7 +104,7 @@ export const ProductsProvider: React.FC<ContextProps> = ({ children }) => {
     </ProductsContext.Provider>
   );
 };
-// make sure use
+
 export const useProductsContext = () => {
   return useContext(ProductsContext);
 };

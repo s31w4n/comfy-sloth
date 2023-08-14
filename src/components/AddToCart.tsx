@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
 import { useCartContext } from '../context/cart_context';
 import AmountButtons from './AmountButtons';
-import { Product } from '../context/products_context';
+import { Product } from '../types';
 
 interface Props {
   product: Product;

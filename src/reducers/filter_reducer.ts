@@ -9,12 +9,7 @@ import {
   CLEAR_FILTERS,
 } from '../actions';
 import { InitialStateType as State } from '../context/filter_context';
-import { Product } from '../context/products_context';
-
-interface Action {
-  type: string;
-  payload?: any;
-}
+import { Action, Product } from '../types';
 
 const filter_reducer = (state: State, action: Action) => {
   if (action.type === LOAD_PRODUCTS) {

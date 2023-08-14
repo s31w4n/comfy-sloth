@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useFilterContext } from '../context/filter_context';
 import { getUniqueValues, formatPrice } from '../utils/helpers';
 import { FaCheck } from 'react-icons/fa';
+import { BsFilterLeft } from 'react-icons/bs';
 
 const Filters: React.FC = () => {
   const [showMoreFiltersButton, setShowMoreFiltersButton] = useState(false);
@@ -80,9 +81,9 @@ const Filters: React.FC = () => {
           }}
           className="form-container"
         >
-          <div className="input-container">
+          <div className="form-control input-container">
             {/* search input */}
-            <div className="form-control">
+            <div>
               <input
                 type="text"
                 name="text"
@@ -95,15 +96,18 @@ const Filters: React.FC = () => {
             {/* end of search input */}
 
             {/* Show/hide filters button */}
-            {showMoreFiltersButton && (
-              <button
-                type="button"
-                className="more-filters-btn btn filters-btn"
-                onClick={handleMoreFiltersClick}
-              >
-                {showFilters ? 'Less Filters' : 'More Filters'}
-              </button>
-            )}
+            <div>
+              {showMoreFiltersButton && (
+                <button
+                  type="button"
+                  className="more-filters-btn btn filters-btn"
+                  onClick={handleMoreFiltersClick}
+                >
+                  <BsFilterLeft />
+                  {showFilters ? 'Filters' : 'Filters'}
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Filter controls */}
@@ -216,12 +220,15 @@ const Filters: React.FC = () => {
                 />
               </div>
               {/* end of shipping */}
+              <button
+                type="button"
+                className="clear-btn form-control"
+                onClick={clearFilters}
+              >
+                Clear Filters
+              </button>
             </div>
           )}
-
-          <button type="button" className="clear-btn" onClick={clearFilters}>
-            Clear Filters
-          </button>
         </form>
       </div>
     </Wrapper>
@@ -237,6 +244,7 @@ const Wrapper = styled.section`
   }
   .search-input {
     padding: 0.5rem;
+    margin: 0;
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
@@ -322,13 +330,18 @@ const Wrapper = styled.section`
   }
   .filters-btn {
     display: flex;
+
     align-items: center;
+    gap: 0.5rem;
     background: var(--clr-primary-5);
+    border: none;
     color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.75rem;
     border-radius: var(--radius);
-    margin-bottom: 1.75rem;
-    margin-left: 1rem;
+    margin: 0 0 0 1rem !important;
+    svg {
+      font-size: 1rem;
+    }
   }
   .form-container {
     display: flex;
@@ -339,7 +352,7 @@ const Wrapper = styled.section`
   .input-container {
     display: flex;
     align-items: center;
-    margin-right: 1rem;
+    justify-content: flex-start;
   }
 
   .filter-controls {

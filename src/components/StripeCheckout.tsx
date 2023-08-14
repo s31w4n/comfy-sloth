@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import CheckoutForm from './CheckoutForm';
 import { useCartContext } from '../context/cart_context';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY!);
+const stripePromise = loadStripe(
+  process.env.REACT_APP_STRIPE_PUBLIC_KEY as string
+);
 
 const StripeCheckout: React.FC = () => {
   const [clientSecret, setClientSecret] = useState('');
@@ -78,7 +80,6 @@ const Wrapper = styled.section`
   }
 
   span {
-    font-family: 'Array', sans-serif;
     letter-spacing: normal;
   }
 

@@ -175,8 +175,8 @@ p {
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 400;
-  transition: var(--transition);
   font-size: 0.875rem;
+  transition: var(--transition);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);

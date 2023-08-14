@@ -9,33 +9,39 @@ const CartPage: React.FC = () => {
 
   if (cart.length < 1) {
     return (
-      <Wrapper className="page-100">
-        <div className="empty">
-          <h2>Your cart is empty</h2>
-          <Link to="/products" className="btn">
-            fill it
-          </Link>
-        </div>
-      </Wrapper>
+      <main>
+        <PageHero title="cart" />
+        <Wrapper className="page">
+          <div className="empty">
+            <h2>Your cart is empty</h2>
+            <Link to="/products" className="btn">
+              fill it
+            </Link>
+          </div>
+        </Wrapper>
+      </main>
     );
   }
 
   return (
     <main>
       <PageHero title="cart" />
-      <Wrapper className="page">
-        <CartContent />
-      </Wrapper>
+      <CartContent />
     </main>
   );
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .empty {
     text-align: center;
     h2 {
-      margin-bottom: 2rem;
       text-transform: capitalize;
+    }
+    a {
+      margin-top: 1rem;
     }
   }
 `;

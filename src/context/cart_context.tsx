@@ -7,26 +7,16 @@ import {
   CLEAR_CART,
   COUNT_CART_TOTALS,
 } from '../actions';
-import { Product } from './products_context';
-
-export type Cart = {
-  id: string;
-  name: string;
-  color: string;
-  amount: number;
-  image: string;
-  price: number;
-  max: number;
-};
+import { ContextProps, CartItem, Product } from '../types';
 
 export type InitialStateType = {
-  cart: Cart[];
+  cart: CartItem[];
   total_items: number;
   total_amount: number;
   shipping_fee: number;
 };
 
-export type CartContextType = InitialStateType & {
+type CartContextType = InitialStateType & {
   addToCart: (
     id: string,
     color: string,
@@ -37,10 +27,6 @@ export type CartContextType = InitialStateType & {
   toggleAmount: (id: string, value: string) => void;
   clearCart: () => void;
 };
-
-interface ContextProps {
-  children: React.ReactNode;
-}
 
 // check for existing an item in the local storage
 const getLocalStorage = (): [] => {
@@ -105,7 +91,7 @@ export const CartProvider: React.FC<ContextProps> = ({ children }) => {
     </CartContext.Provider>
   );
 };
-// make sure use
+
 export const useCartContext = () => {
   return useContext(CartContext);
 };

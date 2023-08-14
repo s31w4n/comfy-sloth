@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { formatPrice } from '../utils/helpers';
 import { Link } from 'react-router-dom';
-import { Products } from '../context/products_context';
+import { Products } from '../types';
 
 interface Props {
   products: Products[];
