@@ -31,7 +31,6 @@ const Product: React.FC<Props> = ({ id, name, price, image }) => {
 const Wrapper = styled.article`
   .container {
     position: relative;
-    background: var(--clr-black);
     border-radius: var(--radius);
   }
   img {
