@@ -28,7 +28,7 @@ Welcome to the Comfy Sloth Project repository! This is a modern e-commerce web a
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/s31w4n/comfy-zone-ts.git
+   git clone https://github.com/s31w4n/comfy-sloth.git
    ```
 
 2. Install Dependencies
