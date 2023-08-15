@@ -49,7 +49,7 @@ export const services: Services[] = [
     id: 3,
     icon: <GiStabbedNote />,
     title: 'history',
-    text: 'Established in 1995, Comfy Zone started as a small family business, growing steadily to become a renowned furniture brand. ',
+    text: 'Established in 1995, Comfy Sloth started as a small family business, growing steadily to become a renowned furniture brand. ',
   },
 ];
 

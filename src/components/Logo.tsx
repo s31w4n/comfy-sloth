@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Logo: React.FC = () => {
   return (
     <Wrapper>
-      <span>Comfy</span>Zone
+      <span>Comfy</span>Sloth
     </Wrapper>
   );
 };
