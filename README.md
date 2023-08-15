@@ -33,8 +33,8 @@ Welcome to the Comfy Sloth Project repository! This is a modern e-commerce web a
 
 2. Install Dependencies
 
-```bash
+    ```bash
     cd comfy-sloth
     npm install
     npm start
-```
+    ```
